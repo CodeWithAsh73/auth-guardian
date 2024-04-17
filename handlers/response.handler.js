@@ -1,0 +1,12 @@
+class ApiResponse {
+  constructor(statusCode, message = "Success", data ) {
+    this.statusCode = statusCode;
+    this.success = statusCode < 400; 
+    this.message = message;
+    this.data = data;
+  }
+}
+const responseHandler = (statusCode, message, data) => {
+  return new ApiResponse(statusCode, message, data);
+};
+module.exports = responseHandler
